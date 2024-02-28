@@ -1,0 +1,537 @@
+@import './resets.scss';
+@import './variables.scss';
+
+@function weight($weight-name)
+
+{
+
+    @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCentriranje($direction)
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin flexsaP($direction)
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+
+@mixin flexsaB($direction)
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin backgroundpos()
+{
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+@mixin paragraf()
+{
+    margin-top: 20px;
+    text-shadow: $text-shadow;
+    font-size: 25px;
+    text-align: center;
+}
+
+@mixin naslov()
+{
+    @include flexCentriranje(column);
+      padding-top: 50px;
+        text-shadow: $text-shadow;
+        text-align: center;
+}
+
+
+
+@mixin mobile {
+
+    @media (max-width: $mobile)
+    {
+        @content;
+    }
+
+    
+
+}
+
+@mixin tablet {
+
+    @media (max-width: $tablet)
+    {
+        @content;
+    }
+
+    
+
+}
+
+
+@mixin mobiles {
+
+    @media (max-width: $mobiles)
+    {
+        @content;
+    }
+
+    
+
+}
+
+
+
+.head
+{
+    @include backgroundpos();
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(../img/background3.jpg);
+    height: 1000px;
+    position: relative;
+   
+   
+}
+
+
+
+.navigacija 
+{
+    display: flex;
+   justify-content: space-between;
+    align-items: center;
+    padding: 2% 2%;
+    font-size: 30px;
+    color:white;
+    font-weight: weight(regular);
+
+
+    @include mobile
+    {
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+    @include tablet
+    {
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+    @include mobiles
+    {
+        flex-direction: column;
+        font-size: 15px;
+    }
+}
+
+
+.navigacija ul li::after{
+
+    content: '';
+    width: 0%;
+    height: 4px;
+    background: $hover-color;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+
+.navigacija ul li:hover::after{
+
+    width: 100%;
+
+
+}
+
+.navigacija a{
+
+    color:#fff;
+    text-decoration: none;
+    font-size: 25px; 
+ }
+ 
+
+
+
+.navigacija ul 
+{
+    display: flex;
+    list-style-type: none;
+    gap: 20px
+}
+
+.navigacija h1
+{
+    font-size: 60px;
+    background-image: linear-gradient(90deg,#f04dff,#6f00ff);
+    background-clip:text;
+    color: transparent;
+}
+
+.gtekst
+{
+    text-shadow: rgb(190, 77, 224) 0px 0 25px;
+    @include flexCentriranje(column);
+    color: $text-color;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 300px;
+    @include mobiles
+    {
+        flex-direction: column;
+        font-size: 25px;
+    }
+
+   a
+   {
+    color: #fff;
+   }
+   
+}
+
+.fa-solid 
+{
+    margin-top: 70px;
+    font-size: 50px;
+    animation: move 1s infinite;
+    text-shadow: rgb(255, 1, 86) 0px 0 30px;
+    
+}
+
+
+
+
+@keyframes move{
+    0%{margin-top:0px;}
+    50%{margin-top:20px;}
+    100%{margin-top:0px;}
+  }
+
+  .about
+  {
+    background-color: $accent-color;
+    color: #fff;
+    background-image: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)), url(../img/background2.jpg);
+   border-top: 5px solid plum;
+   @include backgroundpos();
+   
+ 
+    .ja
+    {
+        @include flexCentriranje(column);
+        
+          margin-top: 50px; 
+          text-shadow: $text-shadow;
+
+
+       
+          
+    }
+
+
+    .ja img
+    {
+
+        border:5px solid #f04dff;
+        border-radius: 10px;
+
+      max-height: 500px;
+      box-shadow: rgb(145, 11, 138) 0px 0 20px;
+      padding: 20px;
+      @include mobile
+      {
+        max-height: 400px;
+      }
+        
+        @include mobiles
+        {
+            max-height: 300px;
+            
+            
+        }
+    
+    }
+
+    .aptekst p
+    {
+        @include paragraf();
+ 
+
+    }
+
+
+    }
+    .atekst
+    {
+       @include naslov();
+    
+        h1
+        {
+            border-bottom:2px solid white ;
+            border-radius: 5px;
+           
+        }
+
+    
+    }
+
+
+    .skills
+    {
+        @include backgroundpos();
+        @include flexsaB(column);
+        border-top: 5px solid plum;
+        background-color: $accent-color;
+        color: #fff;
+        background-image: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)), url(../img/background4.jpg);
+        border-bottom: 5px solid plum;
+        .skillst
+        {
+            
+            @include naslov();
+          
+              h1
+              {
+                  border-bottom:2px solid white ;
+                  border-radius: 5px;
+                 
+              }
+      
+        }
+
+        .skillstp
+        {
+            @include paragraf();
+       
+ 
+        }
+
+
+        .logop img
+        {
+            
+            padding: 10px;
+            margin-top: 60px;
+            max-width: 250px;
+            border: 2px solid #f04dff;
+            border-radius: 10px;
+            box-shadow: rgb(145, 11, 138) 0px 0 20px;
+            margin-bottom: 60px;
+            @include tablet()
+            {
+                max-width: 220px;
+            }
+
+
+            @include mobile()
+            {
+                max-width: 200px;
+            }
+
+         @include mobiles()
+         {
+            max-width: 150px;
+         }
+
+   
+        }
+
+        img:hover{
+            transition: 0.5s;
+            box-shadow: 0 0 50px 13px rgb(211, 117, 255);
+        
+        }
+    }
+  
+
+
+    .projects
+    {
+        color: #fff;
+        background-image: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)), url(../img/background4.jpg);
+        @include backgroundpos();
+       
+       
+        .projectsp
+        {
+            @include flexCentriranje(column);
+            @include naslov();
+              h1
+              {
+                  border-bottom:2px solid white ;
+                  border-radius: 5px;
+                 
+              }
+        }
+
+        .projectspp p
+        {
+            @include flexCentriranje(column);
+            @include paragraf();
+        }
+
+        .projectsimg
+        {
+            margin-top: 5%;
+            @include flexsaP(row);
+            text-align: center;
+            margin-bottom: 60px;
+           
+        }
+
+        .projectsimg img{
+
+           border-radius: 10px;
+            max-width: 450px;
+            box-shadow: rgb(145, 11, 138) 0px 0 20px;
+        }
+
+       .col1 img:hover{
+            transition: 0.5s;
+            box-shadow: 0 0 50px 13px rgb(211, 117, 255);
+        
+        }
+
+        .col1 p 
+        {
+            margin-top: 5px;
+            text-shadow: $text-shadow;
+        }
+
+      @media(max-width: 700px)
+      {
+        .projectsimg
+        {
+            
+           flex-direction: column;
+        }
+
+       
+      }
+
+      @media(max-width: 1459px)
+      {
+        .projectsimg
+        {
+            
+           flex-direction: column;
+        }
+
+       
+      }
+
+      @media(max-width: 473px)
+      {
+        .projectsimg
+        {
+            
+           flex-direction: column;
+        }
+
+        .projectsimg img
+        {
+            
+           max-width: 300px;
+        }
+
+       
+      }
+
+
+     
+
+
+
+    }
+
+
+    .forma
+    {
+        color: #fff;
+        background-image: linear-gradient(rgba(4,9,30,0.9), rgba(4,9,30,0.9)), url(../img/background4.jpg);
+        @include backgroundpos();
+        border-top: 5px solid plum;;
+        .formah
+        {
+            @include flexCentriranje(column);
+            @include naslov();
+              h1
+              {
+                  border-bottom:2px solid white ;
+                  border-radius: 5px;
+                 
+              }
+        }
+
+        .formap
+        {
+            @include flexCentriranje(column);
+            @include paragraf();
+        }
+
+
+
+        form
+        {
+           
+            margin-top: 50px;
+            text-align: center;
+
+            input[type=text], input[type=email]
+            {
+                color: white;
+               background: transparent;
+                border: none;
+                border-bottom: 2px solid rgb(235, 0, 235);
+                border-radius: 5px;
+                height: 50px;
+                width: 200px;
+               
+            }
+
+            input[type=submit]
+            {
+                margin-top: 20px;
+                width: 100px;
+                height: 40px;
+                background-color: plum;
+                border-radius: 10px;
+                
+            }
+
+            input[type=submit]:hover{
+                transition: 0.5s;
+                box-shadow: 0 0 30px 13px rgb(211, 117, 255);
+            
+            }
+        
+        }
+
+
+    }
+
+
+
+    .footer
+    {
+
+        .h1{
+        
+        background-color: linear-gradient(90deg,#f04dff,#6f00ff);
+ 
+
+        }
+    }
