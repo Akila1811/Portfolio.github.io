@@ -24,6 +24,13 @@
     flex-direction: $direction;
 }
 
+@mixin Podvlaka 
+{
+    border-bottom:2px solid white ;
+    border-radius: 5px;
+   
+}
+
 
 @mixin flexsaB($direction)
 {
@@ -280,9 +287,7 @@
     
         h1
         {
-            border-bottom:2px solid white ;
-            border-radius: 5px;
-           
+           @include Podvlaka();
         }
 
     
@@ -305,8 +310,7 @@
           
               h1
               {
-                  border-bottom:2px solid white ;
-                  border-radius: 5px;
+                @include Podvlaka();
                  
               }
       
@@ -371,9 +375,7 @@
             @include naslov();
               h1
               {
-                  border-bottom:2px solid white ;
-                  border-radius: 5px;
-                 
+                @include Podvlaka();
               }
         }
 
@@ -470,8 +472,7 @@
             @include naslov();
               h1
               {
-                  border-bottom:2px solid white ;
-                  border-radius: 5px;
+                @include Podvlaka();
                  
               }
         }
@@ -528,10 +529,29 @@
     .footer
     {
 
-        .h1{
-        
-        background-color: linear-gradient(90deg,#f04dff,#6f00ff);
- 
+        background-color: $accent-color;
+        text-align: center;
+        padding: 30px;
 
+        h1{
+        
+            font-size: 60px;
+            background-image: linear-gradient(90deg,#f04dff,#6f00ff);
+            background-clip:text;
+            color: transparent;
+           
+
+        }
+
+
+        a
+        {
+            color: purple;
+        }
+
+        i 
+        {
+            padding: 10px;
+            font-size: 25px;
         }
     }
