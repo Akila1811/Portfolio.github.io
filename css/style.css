@@ -33,7 +33,12 @@ nav ul li::after {
 
 
 .section-padding{
-    padding: 100px 0;
+    padding: 20px 0;
+}
+
+.contact
+{
+    padding-top: 180px;
 }
 
 .row .col-12
