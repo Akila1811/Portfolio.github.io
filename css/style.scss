@@ -64,6 +64,13 @@
         text-align: center;
 }
 
+@mixin galaxyfold 
+{
+    @media (max-width: $fold)
+    {
+        @content;
+    }
+}
 
 
 @mixin mobile {
